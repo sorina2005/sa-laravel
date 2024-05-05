@@ -23,21 +23,21 @@
                                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create an account</h5>
 
                                     <div class="form-outline mb-4">
-                                        <input class="form-control form-control-lg" type="text" id="name" name="name" placeholder="Name" value="{{ old('name') }}">
+                                        <input class="form-control form-control-lg" type="text" id="name" name="name" value="{{ old('name') }}">
                                         <label class="form-label" for="name">Name</label>
                                         @error('name') <span class="error">{{ $message }}</span> @enderror
 
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input class="form-control form-control-lg" type="email" id="email" name="email" placeholder="Email" value="{{ old('email') }}" >
+                                        <input class="form-control form-control-lg" type="email" id="email" name="email" value="{{ old('email') }}" >
                                         <label class="form-label" for="email">Email</label>
                                         @error('email') <span class="error">{{ $message }}</span> @enderror
 
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input class="form-control form-control-lg" type="password" id="password" name="password" placeholder="Password" >
+                                        <input class="form-control form-control-lg" type="password" id="password" name="password"  >
                                         <label class="form-label" for="password">Password</label>
                                         <span class="password-toggle-icon"><i class="fa fa-eye"></i></span>
                                         @error('password') <span class="error">{{ $message }}</span> @enderror
@@ -46,10 +46,10 @@
 
                                     <div class="form-outline mb-4">
 
-                                        <input class="form-control form-control-lg" type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" >
+                                        <input class="form-control form-control-lg" type="password" id="confirm_password" name="confirm_password"  >
                                         <label class="form-label" for="confirm-password">Confirm password</label>
                                         <span class="confirm-password-toggle-icon"><i class="fa fa-eye"></i></span>
-                                        @error('confirm_password') <span class="error">{{ $message }}</span> @enderror>
+                                        @error('confirm_password') <span class="error">{{ $message }}</span> @enderror
 
                                     </div>
 
@@ -86,7 +86,7 @@
 
 <script>
     const passwordField = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirm-password");
+    const confirmPassword = document.getElementById("confirm_password");
     const togglePassword = document.querySelector(".password-toggle-icon i");
     const togglePassword2 = document.querySelector(".confirm-password-toggle-icon i");
 

@@ -29,7 +29,7 @@ class UserController extends Controller
             ]);
         }
     }
-//TODO make errors in login and register look ok 
+//TODO make errors in login and register look ok
     public function register()
     {
         return view('register');

@@ -12,11 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('recipes', function (Blueprint $table) {
-            $table->id()->primary();
-            $table->string('name');
-            $table->string('image_url');
-            $table->longText('procedure');
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('title');
+            $table->text('ingredients');
+            $table->text('instructions');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
