@@ -1,0 +1,156 @@
+
+/*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+}*/
+
+
+.bg-gradient{
+    background-color: #FFE6A7 ;
+}
+
+
+main{
+    padding-bottom: 2.5rem;
+}
+
+
+.navbar::before{
+    content: '';
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background: #5f3a26;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(50px); 
+    z-index: -1;
+}
+
+
+.navbar::after{
+    content: '';
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
+    transition: .5s;
+}
+
+
+.navbar:hover::after{
+    left: 100%;
+}
+
+
+/*--------------FOOTER-------------------*/
+
+footer{
+    background: linear-gradient(#FFE6A7,#f8d784, #fcd166);
+    border: 3px solid #fcd166;
+}
+
+/*---------------MAIN CONTENT-------------------*/
+
+
+/*main{
+    padding-top: 70px;
+}
+
+
+div a{
+    text-decoration: none;
+    display:block;
+    color: #432818;
+    text-align: center;
+
+}
+  
+
+div a:hover{
+    color:#99582A;
+    
+}
+
+
+.heading{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px auto;
+}
+
+
+.heading h1{
+    font-size: 50px;
+    color: #000;
+    margin-bottom:25px;
+    position: relative;
+
+}
+
+
+.heading h1::after{
+    content: "";
+    position: absolute;
+    width:100%;
+    height:4px;
+    display: block;
+    margin: 0 auto;
+    background-color: #99582A;
+}
+
+
+.heading p{
+    font-size: 18px;
+    color:#432818;
+    margin-bottom: 35px;
+}
+
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+
+.about{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.about-image{
+    flex:1;
+    margin-right: 40px;
+    overflow: hidden;
+}
+
+.about-image img{
+    max-width:100%;
+    height: auto;
+    display:block;
+}
+
+
+.about-content{
+    flex:1;
+}
+
+.about-content h2{
+    font-size: 20px;
+    margin-bottom: 15px;
+    color:#432818;
+}
+
+
