@@ -87,6 +87,9 @@
                         <li>
                             <a class="text-body" href="{{ route('recipes') }}">Recipes</a>
                         </li>
+                        <li>
+                            <a class="text-body" href="{{ route('profile') }}">Profile</a>
+                        </li>
                     @endauth
                 </ul>
             </div>

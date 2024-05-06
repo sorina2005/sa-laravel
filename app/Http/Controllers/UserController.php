@@ -1,5 +1,5 @@
 <?php
-
+//TOTO profile
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -25,10 +25,11 @@ class UserController extends Controller
             return redirect()->intended();
         } else {
             return back()->withErrors([
-                'email' => 'Invalid credentials'
-            ]);
+                'email' => 'Invalid credentials',
+            ])->withInput($request->except('password'));
         }
     }
+
 //TODO make errors in login and register look ok
     public function register()
     {
@@ -48,6 +49,12 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended();
         }
+
+        $getuserid = $user->id;
+        $createprofile = new Profile();
+        $createprofile->user_id = $getuserid;
+        $createprofile->save();
+        return $user;
 
     }
 

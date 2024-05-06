@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,8 @@ Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 Route::middleware('auth')->group(function (): void {
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/recipes', [RecipesController::class, 'recipes'])->name('recipes');
+    Route::get('profile',[ProfileController::class,'profile'])->name('profile');
+//    Route::post('profile/{user}',[ProfileController::class,'update'])->name('profile.update');
     });
 
 
@@ -43,3 +46,5 @@ Route::post('/authenticate', [UserController::class, 'authenticate'])->name('aut
 
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/create-user', [UserController::class, 'create'])->name('create-user');
+
+

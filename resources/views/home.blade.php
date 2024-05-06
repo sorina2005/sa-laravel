@@ -1,7 +1,6 @@
 <!-- Header -->
 @include('shared.header')
 
-
 {{--@dd($userSorina)--}}
 
 {{--@foreach($users as $user)--}}
@@ -11,6 +10,7 @@
 <section class="sec1 text-center">
     <h1>If you don't know what to cook, you can find on our page new recipes</h1>
 </section>
+
 <section class="sec2"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur at, libero quaerat distinctio suscipit odit modi esse vero temporibus cum similique recusandae neque, ut molestias porro autem? Veritatis excepturi sequi harum ratione eius! Inventore, magnam. Molestias itaque dignissimos est dicta vel fugit eaque esse iste voluptatibus minima soluta, ex ab qui accusantium ipsam quidem explicabo debitis doloribus. Architecto sit nihil dolorum error recusandae aspernatur? Dolorem voluptate rerum nihil, quaerat consequatur a voluptatum, velit consequuntur nam nisi eos laborum voluptates maiores corporis accusamus obcaecati ipsa, beatae iure eligendi! Provident quaerat odit vel a, quibusdam recusandae repudiandae eum necessitatibus consequatur obcaecati sit.</p></section>
 <section class="sec3"></section>
 <section class="sec2"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quam libero corporis voluptatem dolores accusantium voluptates dicta pariatur ipsa earum! Voluptatum amet ducimus nulla tenetur eum sequi obcaecati placeat at molestias. Harum, voluptates? Optio minus perspiciatis a quam, doloribus incidunt necessitatibus autem molestiae provident eligendi tempore veritatis, fuga distinctio? Commodi et, at rem nihil, ut perferendis hic optio cumque veritatis nisi odit nobis eligendi debitis esse corrupti vitae. Nam ipsam autem magnam cupiditate ab enim voluptate veniam corrupti! Beatae quidem nisi quisquam maiores voluptas soluta eos ipsum alias placeat animi nihil, sunt voluptate assumenda earum quia quam recusandae nobis officia.</p></section>
