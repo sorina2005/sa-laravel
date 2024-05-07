@@ -12,38 +12,36 @@
                 <div class="col-md-6">
 
 
-{{--                    <form action="process.php" method="POST">--}}
+                    <form action="{{ route('create-message') }}" method="post">
+                        @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <span class="error1"></span>
-                                <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+                                @error('first_name') <span class="error">{{ $message }}</span> @enderror
+                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name">
                             </div>
                             <div class="form-group col-md-6">
-                                <span class="error2"></span>
-                                <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+                                @error('last_name') <span class="error">{{ $message }}</span> @enderror
+                                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
                             </div>
                         </div>
                         <div class="form-group">
-                            <span class="error3"></span>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                            @error('email') <span class="error">{{ $message }}</span> @enderror
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <span class="error4"></span>
-                            <input type="text" class="form-control" id="inputSubject" placeholder="Subject">
+                            @error('subject') <span class="error">{{ $message }}</span> @enderror
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
                         </div>
                         <div class="form-group text-center">
-                            <span class="error5"></span>
-                            <textarea placeholder="Message" cols="30" rows="10" class="contact-form-textarea" id="message"></textarea>
+                            @error('message') <div class="error">{{ $message }}</div> @enderror
+                            <textarea placeholder="Message" cols="30" rows="10" name="message" class="contact-form-textarea" id="message"></textarea>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary submit">Submit form</button>
                         </div>
-                        <div class="form-group text-center">
-                            <h1>Submission Counter</h1>
-                            <div id="submissionCounter">Submissions: 0</div>
-                        </div>
                     </form>
                 </div>
+{{--                todo making from errors a component and reuse it --}}
             </div>
         </div>
     </section>

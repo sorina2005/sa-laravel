@@ -63,4 +63,6 @@ class UserController extends Controller
         auth()->logout();
         return redirect()->route('home');
     }
+
+
 }

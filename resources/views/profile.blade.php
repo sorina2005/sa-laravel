@@ -62,4 +62,85 @@
             </div>
         </div>
     </div>
-</section>>
+
+    <!--Update Profile Pic Modal -->
+    <div class="modal fade" id="ProfilePicModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content border-dark">
+                <div class="modal-header bg-light">
+                    <h2 class="card-title">Update Profile Picture</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <img src="{{asset('images')}}/no_pic.png" alt="avatar" class="rounded-circle bg-dark img-fluid" style="width: 150px;">
+                            </div>
+                            <div class="col-md-6">
+                                <form id="avatar-form" enctype="multipart/form-data" action="{{route('updatepic')}}" method="POST">
+                                    @csrf
+                                    <div class="card-body text-center">
+{{--                                        TODO--}}
+                                        <input type="hidden" name="userid" value="">
+                                        <div class="row pt-3 justify-content-center">
+                                            <input id="avatar" type="file" name="avatar" class="form-control-sm text-bg-dark">
+                                        </div>
+                                    </div>
+                                    <div class="card-body py-2 text-center">
+                                        <button type="submit" class="btn btn-sm btn-success p-1">Save Picture</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Update Profile Info Modal -->
+    <div class="modal fade" id="proInfoModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content border-dark">
+                <div class="modal-header bg-light">
+                    <h2 class="card-title">Update Profile Info</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form id="info-form" enctype="multipart/form-data" action="{{route('updateinfo')}}" method="POST">
+                            @csrf
+{{--                            todo--}}
+                            <input type="hidden" name="userid" value="">
+                            <div class="row ">
+                                <div class="col-sm-4 ">
+                                    <p class="mb-0">Mobile Number</p>
+                                </div>
+                                <div class="col-sm-8 pull-right">
+                                    <input type="text" class="form-control"  name="updmobile" id="updmobile" value="">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <p class="mb-0">Address</p>
+                                </div>
+                                <div class="col-sm-8">
+{{--                                    TODO--}}
+                                    <input type="text" class="form-control" name="updaddress" id="updaddress" value="">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <button type="submit" class="btn btn-success">Save Profile Info Update</button>
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

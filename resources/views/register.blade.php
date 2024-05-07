@@ -25,14 +25,20 @@
                                     <div class="form-outline mb-4">
                                         <input class="form-control form-control-lg" type="text" id="name" name="name" value="{{ old('name') }}">
                                         <label class="form-label" for="name">Name</label>
-                                        @error('name') <span class="error">{{ $message }}</span> @enderror
+                                        @php
+                                         $field='name'
+                                        @endphp
+                                        @include('components.error')
 
                                     </div>
 
                                     <div class="form-outline mb-4">
                                         <input class="form-control form-control-lg" type="email" id="email" name="email" value="{{ old('email') }}" >
                                         <label class="form-label" for="email">Email</label>
-                                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                                        @php
+                                            $field='email'
+                                        @endphp
+                                        @include('components.error')
 
                                     </div>
 
@@ -40,7 +46,10 @@
                                         <input class="form-control form-control-lg" type="password" id="password" name="password"  >
                                         <label class="form-label" for="password">Password</label>
                                         <span class="password-toggle-icon"><i class="fa fa-eye"></i></span>
-                                        @error('password') <span class="error">{{ $message }}</span> @enderror
+                                        @php
+                                            $field='password'
+                                        @endphp
+                                        @include('components.error')
 
                                     </div>
 
@@ -49,17 +58,12 @@
                                         <input class="form-control form-control-lg" type="password" id="confirm_password" name="confirm_password"  >
                                         <label class="form-label" for="confirm-password">Confirm password</label>
                                         <span class="confirm-password-toggle-icon"><i class="fa fa-eye"></i></span>
-                                        @error('confirm_password') <span class="error">{{ $message }}</span> @enderror
+                                        @php
+                                            $field='confirm_password'
+                                        @endphp
+                                        @include('components.error')
 
                                     </div>
-
-                                    <!--  <div class="form-check mb-0">
-                                          <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" require/>
-                                          <label class="form-check-label" for="form2Example3">
-                                            Accept terms of use and policy
-                                          </label>
-                                        </div>-->
-
                                     <br>
                                     <div class="form-group">
                                         <input type="submit" class="btn btn-dark btn-lg btn-block" value="Submit" name="register">

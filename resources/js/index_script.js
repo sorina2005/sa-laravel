@@ -1,4 +1,4 @@
- 
+
         let list = document.querySelector('.slider .list');
         let items = document.querySelectorAll('.slider .list .item');
         let dots = document.querySelectorAll('.slider .dots li');
@@ -12,10 +12,10 @@
             if(active + 1 > lengthItems){
             active = 0;
           }
-          else { 
+          else {
              active++;
             }
-          
+
             reloadSlider();
         }
         prev.onclick = function(){
@@ -44,5 +44,6 @@
                 active = key;
                 reloadSlider();
             })
-        }) 
+        })
+
 

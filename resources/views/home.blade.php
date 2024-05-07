@@ -18,109 +18,91 @@
 <br>
 <br>
 <br>
-<section id="category">
-    <!-- Category Area -->
-    <div class="container mt-5">
+{{--todo fix overlaping --}}
+<div class="container">
+    <section id="category" style="padding-bottom: 75rem; padding-top: 75rem; ">
+        <!-- Category Area -->
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{{ asset('images/baked-apple.webp') }}" class="card-img-top" alt="..." style="height: 240px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center"><strong>Breakfast Recipes</strong></h5>
-                        <a class="btn btn-dark btn-block" data-toggle="modal" data-target="#breakfastModal">View List</a>
+            @if(count($recipes)>0)
+            @foreach ($recipes as $recipe)
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ $recipe->image }}" class="card-img-top" alt="Recipe Image">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><strong>{{ $recipe->title }}</strong></h5>
+                            <div class="text-center">
+{{--                                to do make view here--}}
+                                <button type="button" class="btn btn-dark"  title="View">View Recipe</button>
+{{--                                comment button--}}
+                                @auth()
+                                    <button type="button" class="btn btn-dark"  title="Comment">Post a comment</button>
+                                @endauth
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-{{--TODO make images with asset--}}
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{{ asset('images/pancake-tacos.jpg') }}" class="card-img-top" alt="..." style="height: 240px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center"><strong>Lunch Recipes</strong></h5>
-                        <a class="btn btn-dark btn-block" data-toggle="modal" data-target="#lunchModal">View List</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+                @else
+            <p class="alert alert-danger">No posts found</p>
+            @endif
 
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="../images/chicken-caesar-pasta-salad.jpg" class="card-img-top" alt="..." style="height: 240px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center"><strong>Dinner Recipes</strong></h5>
-                        <a class="btn btn-dark btn-block" data-toggle="modal" data-target="#dinnerModal">View List</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="../images/quick-bites.jpg" class="card-img-top" alt="..." style="height: 240px">
-                    <div class="card-body">
-                        <h5 class="card-title text-center"><strong>Dessert Recipes</strong></h5>
-                        <a class="btn btn-dark btn-block" data-toggle="modal" data-target="#dessertModal">View List</a>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
 <div class="search-recipe text-center">
     <a href="../html/api_index.html" target="_blank">Search more recipes</a>
 </div>
 <br>
 <br>
 
-<section id="slider">
-    <div>
-        <br>
-        <h2>Pictures from you</h2>
-    </div>
-    <div class="slider">
-        <div class="list">
-            <div class="item">
-                <img src="{{ asset('images/photos from you/1.JPG') }}" >
-{{--                TODO refactor for all--}}
-            </div>
-            <div class="item">
-                <img src="{{ asset('images/photos from you/2.JPG')}}" >
-            </div>
-            <div class="item">
-                <img src="{{ asset('images/photos from you/3.jpeg')}}" >
-            </div>
-            <div class="item">
-                <img src="{{ asset('images/photos from you/4.jpeg')}}" >
-            </div>
-            <div class="item">
-                <img src="{{ asset('images/photos from you/5.jpeg')}}" >
-            </div>
-            <div class="item">
-                <img src="{{ asset('images/photos from you/6.jpeg')}}" >
-            </div>
-            <div class="item">
-                <img src="{{ asset('images/photos from you/7.JPG')}}" >
-            </div>
+<div class="container">
+    <section id="slider">
+        <div>
+            <br>
+            <h2>Pictures from you</h2>
         </div>
-        <div class="buttons">
-            <button id="prev"><</button>
-            <button id="next">></button>
+        <div class="slider">
+            <div class="list">
+                <div class="item">
+                    <img src="{{ asset('images/photos from you/1.JPG') }}" >
+                    {{--                TODO refactor for all--}}
+                </div>
+                <div class="item">
+                    <img src="{{ asset('images/photos from you/2.JPG')}}" >
+                </div>
+                <div class="item">
+                    <img src="{{ asset('images/photos from you/3.jpeg')}}" >
+                </div>
+                <div class="item">
+                    <img src="{{ asset('images/photos from you/4.jpeg')}}" >
+                </div>
+                <div class="item">
+                    <img src="{{ asset('images/photos from you/5.jpeg')}}" >
+                </div>
+                <div class="item">
+                    <img src="{{ asset('images/photos from you/6.jpeg')}}" >
+                </div>
+                <div class="item">
+                    <img src="{{ asset('images/photos from you/7.JPG')}}" >
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="prev"><</button>
+                <button id="next">></button>
+            </div>
+            <ul class="dots">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
-        <ul class="dots">
-            <li class="active"></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
-</section>
+    </section>
+</div>
 
 <!-- FOOTER -->
 @include('shared.footer')
