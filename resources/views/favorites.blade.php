@@ -34,7 +34,7 @@
             @else
                 <p class="alert alert-danger">No posts found</p>
             @endif
-
+{{--todo make the liked button a different color if the post is liked, or maybe dissaper if the user liked it--}}
         </div>
     </section>
 </div>

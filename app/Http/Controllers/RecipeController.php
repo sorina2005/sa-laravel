@@ -18,7 +18,7 @@ class RecipeController extends Controller
             ]);
     }
 
-        public function store(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'title' => 'required|max:255',
@@ -30,11 +30,12 @@ class RecipeController extends Controller
         return redirect()->route('recipes')
             ->with('success', 'Post created successfully.');
     }
-        /**
-         * Update the specified resource in storage.
-         *
-         */
-        public function update(Request $request, $id)
+
+    /**
+     * Update the specified resource in storage.
+     *
+     */
+    public function update(Request $request, $id)
     {
         $request->validate([
             'image' => 'required',
@@ -47,49 +48,58 @@ class RecipeController extends Controller
         return redirect()->route('recipes')
             ->with('success', 'Post updated successfully.');
     }
-        /**
-         * Remove the specified resource from storage.
-         *
-         */
-        public function destroy($id)
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     */
+    public function destroy($id)
     {
         $post = Recipe::find($id);
         $post->delete();
         return redirect()->route('recipes')
             ->with('success', 'Post deleted successfully');
     }
-        // routes functions
-        /**
-         * Show the form for creating a new post.
-         *
-         */
-        public function create()
+    // routes functions
+
+    /**
+     * Show the form for creating a new post.
+     *
+     */
+    public function create()
     {
         return view('create');
     }
-        /**
-         * Display the specified resource.
-         *
-         */
-        public function show($id)
+
+    /**
+     * Display the specified resource.
+     *
+     */
+    public function show($id)
     {
         $post = Recipe::find($id);
         return view('show',
-        [
-            'post' => $post
-        ]);
+            [
+                'post' => $post
+            ]);
     }
-        /**
-         * Show the form for editing the specified post.
-         *
-         */
-        public function edit($id)
+
+    /**
+     * Show the form for editing the specified post.
+     *
+     */
+    public function edit($id)
     {
         $post = Recipe::find($id);
         return view('edit',
-        [
-            'post' => $post
-        ]);
+            [
+                'post' => $post
+            ]);
+    }
+
+    public function view()
+    {
+        return view('view-post');
     }
 
 }

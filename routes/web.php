@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RecipesController;
@@ -46,18 +48,25 @@ Route::middleware('auth')->group(function (): void {
     Route::post('/store', RecipeController::class .'@store')->name('store');
     Route::get('/recipes/{post}/edit', RecipeController::class .'@edit')->name('edit');
     Route::put('/recipes/{post}', RecipeController::class .'@update')->name('update');
+    Route::get('/recipes/{post}', RecipeController::class .'@show')->name('show');
     Route::delete('/recipes/{post}', RecipeController::class .'@destroy')->name('destroy');
     Route::get('/favorites', [FavoriteController::class, 'favorites'])->name('favorites');
     Route::post('/favorites', [FavoriteController::class, 'upload'])->name('create-favorite');
     Route::delete('/favorites/{post}', [FavoriteController::class, 'destroy'])->name('delete-favorite');
+    Route::post('/comment', [CommentController::class, 'store'])->name('comment');
+    Route::get('/comment/{post}', [CommentController::class, 'show'])->name('add-comment');
+    Route::get('/comments/{post}', [CommentController::class, 'show_comments'])->name('show-comments');
     });
 
-Route::get('/recipes/{post}', RecipeController::class .'@show')->name('show');
+
+
 
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/authenticate', [UserController::class, 'authenticate'])->name('authenticate');
 
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/create-user', [UserController::class, 'create'])->name('create-user');
+
+Route::post('/language-switch', [LanguageController::class, 'languageSwitch'])->name('language.switch');
 
 

@@ -40,11 +40,20 @@
                                 <br>
 {{--                                comment button--}}
                                 @auth()
-                                    <form action="{{ route('show', $recipe->id) }}" >
-                                        @csrf
-                                        @method('GET')
-                                        <button type="submit" class="btn btn-dark"  title="Comment">Post a comment</button>
-                                    </form>
+                                    <div class="row">
+                                        <div class="col">
+                                            <form action="{{ route('add-comment', $recipe->id) }}" method="get">
+                                                @csrf
+                                                <button type="submit" class="btn btn-dark" title="Post a comment">Post a comment</button>
+                                            </form>
+                                        </div>
+                                        <div class="col">
+                                            <form action="{{ route('show-comments', $recipe->id) }}" method="get">
+                                                @csrf
+                                                <button type="submit" class="btn btn-dark" title="View comments">View comments</button>
+                                            </form>
+                                        </div>
+                                    </div>
 
                                 @endauth
                             </div>
@@ -65,7 +74,7 @@
 </div>
 <br>
 <br>
-
+{{--TODO !!!!!!!!!!!!!!!!!!! to make all the pages responsive --}}
 <div class="container">
     <section id="slider">
         <div>

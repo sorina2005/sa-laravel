@@ -61,6 +61,15 @@
                         </ul>
                     </div>
                 @endauth
+                <div class="switch">
+                <form action="{{ route('language.switch') }}" method="POST" class="inline-block">
+                    @csrf
+                    <select name="language" onchange="this.form.submit()" class="p-2 rounded bg-gray-100 text_gray-800">
+                        <option value="en" {{ app()->getLocale() === 'en' ? 'selected' : '' }}>En</option>
+                        <option value="ro" {{ app()->getLocale() === 'ro' ? 'selected' : '' }}>Ro</option>
+                    </select>
+                </form>
+                </div>
             </div>
         </div>
     </div>
