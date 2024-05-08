@@ -39,36 +39,38 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="{{ route('home') }}">Home</a>
-                <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
-                <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                <a class="nav-link" href="{{ route('home') }}">@lang('app.home')</a>
+                <a class="nav-link" href="{{ route('about-us') }}">@lang('app.aboutUs')</a>
+                <a class="nav-link" href="{{ route('contact') }}">@lang('app.contact')</a>
 
                 @auth
-                    <a class="nav-link" href="{{ route('recipes') }}">Recipes</a>
-                    <a class="nav-link" href="{{ route('profile') }}">Profile</a>
-                    <a class="nav-link" href="{{ route('favorites') }}">Favorites</a>
-                    <a class="nav-link btn btn-dark" href="{{ route('logout') }}">Logout</a>
+                    <a class="nav-link" href="{{ route('recipes') }}">@lang('app.recipes')</a>
+                    <a class="nav-link" href="{{ route('profile') }}">@lang('app.profile')</a>
+                    <a class="nav-link" href="{{ route('favorites') }}">@lang('app.favorites')</a>
+                    <a class="nav-link btn btn-dark" href="{{ route('logout') }}">@lang('app.logout')</a>
                 @else
                     <div class="dropdown">
                         <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                            Login/Register
+                            @lang('app.loginRegister')
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
-                            <li><a class="dropdown-item" href="{{ route('register') }}">Register</a>
+                            <li><a class="dropdown-item" href="{{ route('login') }}">@lang('app.login')</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">@lang('app.register')</a>
                             </li>
                         </ul>
                     </div>
                 @endauth
+
                 <div class="switch">
-                <form action="{{ route('language.switch') }}" method="POST" class="inline-block">
-                    @csrf
-                    <select name="language" onchange="this.form.submit()" class="p-2 rounded bg-gray-100 text_gray-800">
-                        <option value="en" {{ app()->getLocale() === 'en' ? 'selected' : '' }}>En</option>
-                        <option value="ro" {{ app()->getLocale() === 'ro' ? 'selected' : '' }}>Ro</option>
-                    </select>
-                </form>
+                    <form action="{{ route('language-switch') }}" method="POST" class="inline-block">
+                        @csrf
+                        <select name="language" onchange="this.form.submit()"
+                                class="p-2 rounded bg-gray-100 text_gray-800">
+                            <option value="en" {{ app()->getLocale() === 'en' ? 'selected' : '' }}>En</option>
+                            <option value="ro" {{ app()->getLocale() === 'ro' ? 'selected' : '' }}>Ro</option>
+                        </select>
+                    </form>
                 </div>
             </div>
         </div>

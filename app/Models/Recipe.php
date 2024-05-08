@@ -10,14 +10,12 @@ class Recipe extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'title',
         'ingredients',
         'instructions',
         'image',
     ];
-
-//TODO verify all models and make all the tables
-
 
     public function user()
     {

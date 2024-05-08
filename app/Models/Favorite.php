@@ -9,8 +9,6 @@ class Favorite extends Model
 {
     use HasFactory;
 
-
-
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +18,7 @@ class Favorite extends Model
         'user_id',
         'recipe_id',
     ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

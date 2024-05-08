@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class RecipeController extends Controller
 {
-    function recipes()
+    function recipes(): View
     {
         $recipes = Recipe::all();
 
@@ -18,86 +19,78 @@ class RecipeController extends Controller
             ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'title' => 'required|max:255',
             'ingredients' => 'required',
             'instructions' => 'required',
-            'image' => 'required'
+            'image' => 'required',
         ]);
+
+        $request['user_id'] = Auth::id();
+
         Recipe::create($request->all());
+
         return redirect()->route('recipes')
             ->with('success', 'Post created successfully.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
-            'image' => 'required',
+            'recipeImage' => 'required',
             'title' => 'required|max:255',
             'ingredients' => 'required',
             'instructions' => 'required',
         ]);
+
         $post = Recipe::find($id);
+
         $post->update($request->all());
+
         return redirect()->route('recipes')
             ->with('success', 'Post updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     */
-    public function destroy($id)
+    public function destroy($id): \Illuminate\Http\RedirectResponse
     {
         $post = Recipe::find($id);
+
         $post->delete();
+
         return redirect()->route('recipes')
             ->with('success', 'Post deleted successfully');
     }
-    // routes functions
 
-    /**
-     * Show the form for creating a new post.
-     *
-     */
-    public function create()
+    public function create(): View
     {
         return view('create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     */
-    public function show($id)
+
+    public function show($id): View
     {
         $post = Recipe::find($id);
+
         return view('show',
             [
                 'post' => $post
             ]);
     }
 
-    /**
-     * Show the form for editing the specified post.
-     *
-     */
-    public function edit($id)
+
+    public function edit($id): View
     {
         $post = Recipe::find($id);
+
         return view('edit',
             [
                 'post' => $post
             ]);
     }
 
-    public function view()
+    public function view(): View
     {
         return view('view-post');
     }

@@ -1,50 +1,66 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use App\Models\User;
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Nette\Utils\Image;
 
 class ProfileController extends Controller
 {
-
-
-    public function profile()
+    public function profile(): View
     {
-        $current_userid = Auth()->user()->id;
-        $userinfo = User::where('id','=',$current_userid)->first();
-        $userprofile = Profile::where('user_id','=',$current_userid)->first();
+        $userId = Auth()->id();
 
-        return view('profile',compact('userprofile','userinfo'));
+        $user = User::where('id', '=', $userId)->first();
+
+        $userProfile = Profile::where('user_id', '=', $userId)->first();
+
+        return view('profile', compact('userProfile', 'user'));
     }
 
-    public function updatepic(Request $request){
-        if($request->hasFile('avatar')){
-            $avatar = $request->file('avatar');
-            $userid = $request['userid'];
-            $uploadedfile = time() . $avatar->getClientOriginalName();
-            Image::make($avatar)->resize(300, 300)->save( public_path('images/' . $uploadedfile  ) );
+    public function updatePicture(Request $request)
+    {
+        if ($request->hasFile('picture')) {
 
-            $user = Profile::where('user_id','=',$userid)->first();
-            $user->picture =$uploadedfile;
+            $picture = $request->file('picture');
+
+            $userId = $request['user_id'];
+
+            $uploadedFile = time() . $picture->getClientOriginalName();
+
+            Image::make($picture)->resize(300, 300)->save(public_path('images/' . $uploadedFile));
+
+            $user = Profile::where('user_id', '=', $userId)->first();
+
+            $user->picture = $uploadedFile;
+
             $user->save();
         }
+
         return redirect('profile');
     }
 
-    public function updateinfo(Request $request){
-        $newmobile = $request['updmobile'];
-        $newaddress = $request['updaddress'];
-        $userid = $request['userid'];
-//todo look here for making the favoriyte page
-        $userinfo = Profile::where('user_id','=',$userid)->first();
-        $userinfo->mobile =$newmobile;
-        $userinfo->address =$newaddress;
-        $userinfo->save();
+    public function updateInfo(Request $request)
+    {
+
+        $data = $request->validate([
+            'address' => 'required',
+            'mobile' => 'required',
+        ]);
+
+        $userId = Auth::id();
+
+        Profile::updateOrCreate(
+            ['user_id' => $userId],
+            $data
+        );
+
         return redirect('profile');
     }
 }
+
+//todo make the profile thing work

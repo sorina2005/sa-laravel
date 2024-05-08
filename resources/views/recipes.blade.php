@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Facades\Auth; @endphp
 @include('shared.header')
 
 <section id="food">
@@ -8,10 +9,10 @@
 
 
                 <div class="col-md-2 mr-auto">
-                    <form action="{{ route('recipes-create') }}" >
+                    <form action="{{ route('recipes-create') }}">
                         @csrf
                         @method('GET')
-                        <button type="submit" class="btn btn-add-food btn-secondary"  >Add Recipe</button>
+                        <button type="submit" class="btn btn-add-food btn-secondary">Add Recipe</button>
                     </form>
                 </div>
 
@@ -35,33 +36,45 @@
             @foreach ($recipes as $recipe)
                 <tr>
                     <th>{{ $recipe->id }}</th>
-                    <td><img src="{{ $recipe->image }}" class="img-fluid" style="height: 50px; width: 90px" alt="Recipe Image"></td>
+                    <td><img src="{{ asset($recipe->image) }}" class="img-fluid" style="height: 50px; width: 90px"
+                             alt="Recipe Image"></td>
                     <td>{{ $recipe->title }}</td>
-{{--                    <td>{{ $recipe->category->category_name }}</td>--}}
+                    {{--                    <td>{{ $recipe->category->category_name }}</td>--}}
                     <td>
-                        <form action="{{ route('show', $recipe->id) }}" >
+                        <form action="{{ route('show', $recipe->id) }}">
                             @csrf
                             @method('GET')
-                            <button type="submit"  title="View"><i class="fa-solid fa-list p-1"></i></button>
+                            <button type="submit" title="View"><i class="fa-solid fa-list p-1"></i></button>
                         </form>
                         <form action="{{ route('edit', $recipe->id) }}" method="post">
                             @csrf
                             @method('GET')
-                            <button type="submit"  title="Edit"><i class="fa-solid fa-pencil p-1"></i></button>
+                            <button type="submit" title="Edit"><i class="fa-solid fa-pencil p-1"></i></button>
                         </form>
 
                         <form action="{{ route('destroy', $recipe->id) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit"  title="Delete"><i class="fa-solid fa-trash p-1"></i></button>
+                            <button type="submit" title="Delete"><i class="fa-solid fa-trash p-1"></i></button>
                         </form>
-{{--                        todo make favorite button work--}}
-                        <form action="{{ route('create-favorite') }}" method="post">
-                            @csrf
-                            @method('POST')
-                            <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
-                            <button type="submit" title="Like"><i class="fa-solid fa-heart p-1"></i></button>
-                        </form>
+                        @php
+                            $userId = Auth::id();
+
+                            $isFavorite = App\Models\Favorite::where('recipe_id', $recipe->id)
+                            ->where('user_id', $userId)
+                            ->exists();
+
+                        @endphp
+                        @if ($isFavorite)
+                            <i class="fa-solid fa-heart text-danger" title="Favorite"></i>
+                        @else
+                            <form action="{{ route('create-favorite') }}" method="post">
+                                @csrf
+                                @method('POST')
+                                <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+                                <button type="submit" title="Like"><i class="fa-solid fa-heart p-1"></i></button>
+                            </form>
+                        @endif
                     </td>
                 </tr>
             @endforeach
@@ -69,7 +82,6 @@
         </table>
     </div>
 </section>
-
 
 
 <br>

@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Favorite;
 use App\Models\Recipe;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
+
 
 class FavoriteController extends Controller
 {
 
-    public function favorites()
+    public function favorites(): View
+//    todo return view
     {
-        $user_id = Auth::id();
-        $favoriteRecipeIds = Favorite::where('user_id', $user_id)->pluck('recipe_id');
+        $userId = Auth::id();
+
+        $favoriteRecipeIds = Favorite::where('user_id', $userId)->pluck('recipe_id');
 
         $recipes = Recipe::whereIn('id', $favoriteRecipeIds)->get();
 
@@ -25,20 +27,23 @@ class FavoriteController extends Controller
             ]);
     }
 
-    public function upload(Request $request)
+    public function upload(Request $request): \Illuminate\Http\RedirectResponse
     {
-        $user_id = Auth::id();
-        $recipe_id = $request->input('recipe_id');
-        $existingFavorite = Favorite::where('user_id', $user_id)
-            ->where('recipe_id', $recipe_id)
+        $userId = Auth::id();
+
+        $recipeId = $request->input('recipe_id');
+
+        $isFavorite = Favorite::where('user_id', $userId)
+            ->where('recipe_id', $recipeId)
             ->exists();
 
-        if ($existingFavorite) {
+        if ($isFavorite) {
             return back()->withErrors(['error' => 'This recipe is already in your favorites.']);
         }
+
         $favorite = Favorite::create([
-            'user_id' => $user_id,
-            'recipe_id' => $recipe_id,
+            'user_id' => $userId,
+            'recipe_id' => $recipeId,
         ]);
 
         if ($favorite) {
@@ -50,10 +55,13 @@ class FavoriteController extends Controller
 
     public function destroy($id)
     {
-        $user_id = Auth::id();
-        $post = Favorite::where('user_id', $user_id)
-                        ->where('recipe_id', $id);
+        $userId = Auth::id();
+
+        $post = Favorite::where('user_id', $userId)
+            ->where('recipe_id', $id);
+
         $post->delete();
+
         return redirect()->route('favorites')
             ->with('success', 'Post deleted successfully');
     }
