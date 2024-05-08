@@ -36,7 +36,6 @@ class CommentController extends Controller
         return redirect('/');
     }
 
-//todo camelcase methods
     public function showComments($id): View
     {
         $comments = Comment::where('recipe_id', $id)

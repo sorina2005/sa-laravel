@@ -1,11 +1,11 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #FFE6A7 ;
+    background-color: #FFE6A7;
 }
 
 
 .card {
-    background-color: #FFE6A7 ;
+    background-color: #FFE6A7;
 }
 
 
@@ -27,7 +27,7 @@ body {
 .carousel-inner {
     height: 45vh;
     width: 100%;
-    
+
 }
 
 

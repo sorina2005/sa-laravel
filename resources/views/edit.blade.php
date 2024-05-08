@@ -17,7 +17,8 @@
                 </div>
                 <div class="form-group">
                     <label for="ingredients">Ingredients</label>
-                    <textarea class="form-control @error('ingredients') is-invalid @enderror" id="ingredients" name="ingredients" rows="3"
+                    <textarea class="form-control @error('ingredients') is-invalid @enderror" id="ingredients"
+                              name="ingredients" rows="3"
                               required>{{ $post->ingredients }}</textarea>
                     @error('ingredients')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -25,7 +26,8 @@
                 </div>
                 <div class="form-group">
                     <label for="instructions">Instructions</label>
-                    <textarea class="form-control @error('instructions') is-invalid @enderror" id="instructions" name="instructions" rows="5"
+                    <textarea class="form-control @error('instructions') is-invalid @enderror" id="instructions"
+                              name="instructions" rows="5"
                               required>{{ $post->instructions }}</textarea>
                 </div>
                 @error('instructions')

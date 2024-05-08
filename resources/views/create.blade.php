@@ -1,4 +1,3 @@
-
 @include('shared.header')
 
 <div class="container h-100 mt-5" style="padding:5rem 0 3rem 0">
@@ -10,7 +9,8 @@
 
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title">
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                           name="title">
                 </div>
                 @error('title')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -18,7 +18,8 @@
 
                 <div class="form-group">
                     <label for="ingredients">Ingredients</label>
-                    <textarea class="form-control @error('ingredients') is-invalid @enderror" id="ingredients" name="ingredients" rows="3"></textarea>
+                    <textarea class="form-control @error('ingredients') is-invalid @enderror" id="ingredients"
+                              name="ingredients" rows="3"></textarea>
                 </div>
                 @error('ingredients')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -26,7 +27,8 @@
 
                 <div class="form-group">
                     <label for="instructions">Instructions</label>
-                    <textarea class="form-control @error('instructions') is-invalid @enderror" id="instructions" name="instructions" rows="5"></textarea>
+                    <textarea class="form-control @error('instructions') is-invalid @enderror" id="instructions"
+                              name="instructions" rows="5"></textarea>
                 </div>
                 @error('instructions')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -34,7 +36,8 @@
 
                 <div class="form-group">
                     <label for="image">Image</label>
-                    <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+                    <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
+                           name="image">
                 </div>
                 @error('image')
                 <div class="alert alert-danger">{{ $message }}</div>

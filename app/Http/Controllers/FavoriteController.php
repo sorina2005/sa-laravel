@@ -13,7 +13,6 @@ class FavoriteController extends Controller
 {
 
     public function favorites(): View
-//    todo return view
     {
         $userId = Auth::id();
 

@@ -14,7 +14,8 @@
                                                  class="rounded-circle bg-dark img-fluid" style="width: 150px;">
 
                                             <div class="row justify-content-center p-2">
-                                                <a href="javascript:void(0)" id="uploadPicture" class="text-lg text-bold"
+                                                <a href="javascript:void(0)" id="uploadPicture"
+                                                   class="text-lg text-bold"
                                                    data-toggle="modal" data-target="#ProfilePicModal">
                                                     <i class="fa fa-pencil-alt"></i>
                                                 </a>
@@ -82,11 +83,11 @@
                                      class="rounded-circle bg-dark img-fluid" style="width: 150px;">
                             </div>
                             <div class="col-md-6">
-                                <form id="avatar-form" enctype="multipart/form-data" action="{{route('update-picture')}}"
+                                <form id="avatar-form" enctype="multipart/form-data"
+                                      action="{{route('update-picture')}}"
                                       method="POST">
                                     @csrf
                                     <div class="card-body text-center">
-                                        {{--                                        TODO--}}
                                         <input type="hidden" name="userId" value="">
                                         <div class="row pt-3 justify-content-center">
                                             <input id="picture" type="file" name="picture"
@@ -117,7 +118,6 @@
                         <form id="info-form" enctype="multipart/form-data" action="{{route('update-info')}}"
                               method="POST">
                             @csrf
-                            {{--                            todo--}}
                             <input type="hidden" name="userId" value="">
                             <div class="row ">
                                 <div class="col-sm-4 ">
@@ -133,7 +133,6 @@
                                     <p class="mb-0">Address</p>
                                 </div>
                                 <div class="col-sm-8">
-                                    {{--                                    TODO--}}
                                     <input type="text" class="form-control" name="address" id="address" value="">
                                 </div>
                             </div>

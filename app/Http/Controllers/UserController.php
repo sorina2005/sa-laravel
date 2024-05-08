@@ -31,7 +31,6 @@ class UserController extends Controller
         }
     }
 
-//TODO make errors in login look ok
     public function register(): View
     {
         return view('register');

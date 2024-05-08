@@ -20,7 +20,8 @@
                         @endphp
 
                         {{-- Display the user's name, the name of the recipe, and the comment content --}}
-                        <div class="user"><strong>{{ $user_name }}</strong>({{ $email }}) commented on {{ $recipe_name }}</div>
+                        <div class="user"><strong>{{ $user_name }}</strong>({{ $email }}) commented
+                            on {{ $recipe_name }}</div>
                         <div class="content text_center">{{ $comment->content }}</div>
                     </div>
                 @endforeach

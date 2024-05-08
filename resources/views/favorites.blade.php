@@ -1,9 +1,6 @@
-
-{{--todo make page with posts liked by the user--}}
-
 @include('shared.header')
 <div class="container" style="padding-top:5rem;">
-    <section id="category" >
+    <section id="category">
         <!-- Category Area -->
         <div class="row">
             @if(count($recipes)>0)
@@ -15,16 +12,17 @@
                                 <h5 class="card-title text-center"><strong>{{ $recipe->title }}</strong></h5>
                                 <div class="text-center">
                                     {{--                                to do make view here--}}
-                                    <form action="{{ route('show', $recipe->id) }}" >
+                                    <form action="{{ route('show', $recipe->id) }}">
                                         @csrf
                                         @method('GET')
                                         <button type="submit" class="btn btn-dark" title="View">View Recipe</button>
                                     </form>
                                     <br>
-                                    <form action="{{ route('delete-favorite', $recipe->id) }}" method="post" >
+                                    <form action="{{ route('delete-favorite', $recipe->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"  title="Delete from favorites"><i class="fa-solid fa-trash p-1"></i></button>
+                                        <button type="submit" title="Delete from favorites"><i
+                                                class="fa-solid fa-trash p-1"></i></button>
                                     </form>
                                 </div>
                             </div>
@@ -34,7 +32,7 @@
             @else
                 <p class="alert alert-danger">No posts found</p>
             @endif
-{{--todo make the liked button a different color if the post is liked, or maybe dissaper if the user liked it--}}
+            {{--todo make the liked button a different color if the post is liked, or maybe dissaper if the user liked it--}}
         </div>
     </section>
 </div>

@@ -1,17 +1,17 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 
-:root{
-    --tenne-tawny:#6f1d1b;
+:root {
+    --tenne-tawny: #6f1d1b;
     --tenne-tawny-dark: #432818;
 }
 
 
-body{
+body {
     font-weight: 300;
     font-size: 1.05rem;
     line-height: 1.6;
@@ -20,7 +20,7 @@ body{
 
 
 /*  */
-.btn{
+.btn {
     font-family: inherit;
     cursor: pointer;
     outline: 0;
@@ -28,24 +28,24 @@ body{
 }
 
 
-.text{
+.text {
     opacity: 0.8;
 }
 
 
-.title{
+.title {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
 
 /*  */
-.container{
+.container {
     min-height: 100vh;
 }
 
 
-.meal-wrapper{
+.meal-wrapper {
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
@@ -54,17 +54,17 @@ body{
 }
 
 
-.meal-search{
+.meal-search {
     margin: 2rem 0;
 }
 
 
-.meal-search cite{
+.meal-search cite {
     font-size: 1rem;
 }
 
 
-.meal-search-box{
+.meal-search-box {
     margin: 1.2rem 0;
     display: flex;
     align-items: stretch;
@@ -72,12 +72,12 @@ body{
 
 
 .search-control,
-.search-btn{
+.search-btn {
     width: 100%;
 }
 
 
-.search-control{
+.search-control {
     padding: 0 1rem;
     font-size: 1.1rem;
     font-family: inherit;
@@ -89,12 +89,12 @@ body{
 }
 
 
-.search-control::placeholder{
+.search-control::placeholder {
     color: var(--tenne-tawny);
 }
 
 
-.search-btn{
+.search-btn {
     width: 55px;
     height: 55px;
     font-size: 1.8rem;
@@ -107,22 +107,22 @@ body{
 }
 
 
-.search-btn:hover{
+.search-btn:hover {
     background: var(--tenne-tawny-dark);
 }
 
 
-.meal-result{
+.meal-result {
     margin-top: 4rem;
 }
 
 
-#meal{
+#meal {
     margin: 2.4rem 0;
 }
 
 
-.meal-item{
+.meal-item {
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
@@ -130,23 +130,23 @@ body{
 }
 
 
-.meal-img img{
+.meal-img img {
     width: 100%;
     display: block;
 }
 
 
-.meal-name{
+.meal-name {
     padding: 1.5rem 0.5rem;
 }
 
 
-.meal-name h3{
+.meal-name h3 {
     font-size: 1.4rem;
 }
 
 
-.recipe-btn{
+.recipe-btn {
     text-decoration: none;
     color: #fff;
     background: var(--tenne-tawny);
@@ -161,13 +161,13 @@ body{
 }
 
 
-.recipe-btn:hover{
+.recipe-btn:hover {
     background: var(--tenne-tawny-dark);
 }
 
 
 /* meal details */
-.meal-details{
+.meal-details {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -183,22 +183,22 @@ body{
 }
 
 /* js related */
-.showRecipe{
+.showRecipe {
     display: block;
 }
 
 
-.meal-details-content{
+.meal-details-content {
     margin: 2rem;
 }
 
 
-.meal-details-content p:not(.recipe-category){
+.meal-details-content p:not(.recipe-category) {
     padding: 1rem 0;
 }
 
 
-.recipe-close-btn{
+.recipe-close-btn {
     position: absolute;
     right: 2rem;
     top: 2rem;
@@ -215,13 +215,13 @@ body{
 }
 
 
-.recipe-title{
+.recipe-title {
     letter-spacing: 1px;
     padding-bottom: 1rem;
 }
 
 
-.recipe-category{
+.recipe-category {
     background: #fff;
     font-weight: 600;
     color: var(--tenne-tawny);
@@ -232,7 +232,7 @@ body{
 }
 
 
-.recipe-category{
+.recipe-category {
     background: #fff;
     font-weight: 600;
     color: var(--tenne-tawny);
@@ -242,12 +242,12 @@ body{
 }
 
 
-.recipe-instruct{
+.recipe-instruct {
     padding: 1rem 0;
 }
 
 
-.recipe-meal-img img{
+.recipe-meal-img img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -256,12 +256,12 @@ body{
 }
 
 
-.recipe-link{
+.recipe-link {
     margin: 1.4rem 0;
 }
 
 
-.recipe-link a{
+.recipe-link a {
     color: #fff;
     font-size: 1.2rem;
     font-weight: 700;
@@ -269,13 +269,13 @@ body{
 }
 
 
-.recipe-link a:hover{
+.recipe-link a:hover {
     opacity: 0.8;
 }
 
 
 /*  */
-.notFound{
+.notFound {
     grid-template-columns: 1fr;
     color: var(--tenne-tawny);
     font-size: 1.8rem;
@@ -284,13 +284,9 @@ body{
 }
 
 
-
-
-
-
 /* Media Queries */
-@media screen and (min-width: 600px){
-    .meal-search-box{
+@media screen and (min-width: 600px) {
+    .meal-search-box {
         width: 540px;
         margin-left: auto;
         margin-right: auto;
@@ -298,23 +294,25 @@ body{
 }
 
 
-@media screen and (min-width: 768px){
-    #meal{
+@media screen and (min-width: 768px) {
+    #meal {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
-    .meal-item{
+
+    .meal-item {
         margin: 0;
     }
-    .meal-details{
+
+    .meal-details {
         width: 700px;
     }
 }
 
 
-@media screen and (min-width: 992px){
-    #meal{
+@media screen and (min-width: 992px) {
+    #meal {
         grid-template-columns: repeat(3, 1fr);
     }
 }
