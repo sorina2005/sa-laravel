@@ -1,5 +1,4 @@
 <?php
-//TODO profile
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -41,7 +40,7 @@ class ProfileController extends Controller
         $newmobile = $request['updmobile'];
         $newaddress = $request['updaddress'];
         $userid = $request['userid'];
-
+//todo look here for making the favoriyte page
         $userinfo = Profile::where('user_id','=',$userid)->first();
         $userinfo->mobile =$newmobile;
         $userinfo->address =$newaddress;

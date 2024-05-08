@@ -46,6 +46,7 @@
                 @auth
                     <a class="nav-link" href="{{ route('recipes') }}">Recipes</a>
                     <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                    <a class="nav-link" href="{{ route('favorites') }}">Favorites</a>
                     <a class="nav-link btn btn-dark" href="{{ route('logout') }}">Logout</a>
                 @else
                     <div class="dropdown">

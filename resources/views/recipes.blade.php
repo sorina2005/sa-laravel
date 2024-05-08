@@ -55,6 +55,13 @@
                             @method('DELETE')
                             <button type="submit"  title="Delete"><i class="fa-solid fa-trash p-1"></i></button>
                         </form>
+{{--                        todo make favorite button work--}}
+                        <form action="{{ route('create-favorite') }}" method="post">
+                            @csrf
+                            @method('POST')
+                            <input type="hidden" name="recipe_id" value="{{ $recipe->id }}">
+                            <button type="submit" title="Like"><i class="fa-solid fa-heart p-1"></i></button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

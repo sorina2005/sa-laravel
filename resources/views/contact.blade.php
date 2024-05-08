@@ -41,7 +41,6 @@
                         </div>
                     </form>
                 </div>
-{{--                todo making from errors a component and reuse it --}}
             </div>
         </div>
     </section>

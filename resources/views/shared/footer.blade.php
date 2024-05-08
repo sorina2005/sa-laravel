@@ -90,6 +90,10 @@
                         <li>
                             <a class="text-body" href="{{ route('profile') }}">Profile</a>
                         </li>
+                        <li>
+                            <a class="nav-link" href="{{ route('favorites') }}">Favorites</a>
+                        </li>
+
                     @endauth
                 </ul>
             </div>

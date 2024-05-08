@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeController;
@@ -43,12 +44,15 @@ Route::middleware('auth')->group(function (): void {
     Route::get('/recipes', [RecipeController::class, 'recipes'])->name('recipes');
     Route::get('/create', RecipeController::class . '@create')->name('recipes-create');
     Route::post('/store', RecipeController::class .'@store')->name('store');
-    Route::get('/recipes/{post}', RecipeController::class .'@show')->name('show');
     Route::get('/recipes/{post}/edit', RecipeController::class .'@edit')->name('edit');
     Route::put('/recipes/{post}', RecipeController::class .'@update')->name('update');
     Route::delete('/recipes/{post}', RecipeController::class .'@destroy')->name('destroy');
+    Route::get('/favorites', [FavoriteController::class, 'favorites'])->name('favorites');
+    Route::post('/favorites', [FavoriteController::class, 'upload'])->name('create-favorite');
+    Route::delete('/favorites/{post}', [FavoriteController::class, 'destroy'])->name('delete-favorite');
     });
 
+Route::get('/recipes/{post}', RecipeController::class .'@show')->name('show');
 
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/authenticate', [UserController::class, 'authenticate'])->name('authenticate');

@@ -18,6 +18,7 @@ class Recipe extends Model
 
 //TODO verify all models and make all the tables
 
+
     public function user()
     {
         return $this->belongsTo(User::class);

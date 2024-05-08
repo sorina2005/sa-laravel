@@ -32,10 +32,20 @@
                             <h5 class="card-title text-center"><strong>{{ $recipe->title }}</strong></h5>
                             <div class="text-center">
 {{--                                to do make view here--}}
-                                <button type="button" class="btn btn-dark"  title="View">View Recipe</button>
+                                <form action="{{ route('show', $recipe->id) }}" >
+                                    @csrf
+                                    @method('GET')
+                                    <button type="submit" class="btn btn-dark" title="View">View Recipe</button>
+                                </form>
+                                <br>
 {{--                                comment button--}}
                                 @auth()
-                                    <button type="button" class="btn btn-dark"  title="Comment">Post a comment</button>
+                                    <form action="{{ route('show', $recipe->id) }}" >
+                                        @csrf
+                                        @method('GET')
+                                        <button type="submit" class="btn btn-dark"  title="Comment">Post a comment</button>
+                                    </form>
+
                                 @endauth
                             </div>
                         </div>
@@ -49,7 +59,7 @@
         </div>
     </section>
 </div>
-
+{{--todo fixing the overlapping problem--}}
 <div class="search-recipe text-center">
     <a href="../html/api_index.html" target="_blank">Search more recipes</a>
 </div>
@@ -66,7 +76,6 @@
             <div class="list">
                 <div class="item">
                     <img src="{{ asset('images/photos from you/1.JPG') }}" >
-                    {{--                TODO refactor for all--}}
                 </div>
                 <div class="item">
                     <img src="{{ asset('images/photos from you/2.JPG')}}" >
