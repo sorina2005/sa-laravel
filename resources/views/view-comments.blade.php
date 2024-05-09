@@ -7,13 +7,17 @@
 
 <div class="container py-5">
     <h1 class="text-center mb-4">Comment Section</h1>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="comments">
                 @foreach($comments as $comment)
                     <div class="comment card mb-4">
                         <div class="card-body">
-                            {{-- Retrieve the name of the user for this comment --}}
                             @php
                                 $user = App\Models\User::find($comment->user_id);
                                 $userName = $user ? $user->name : 'Unknown User';

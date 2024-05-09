@@ -59,7 +59,7 @@ class CommentController extends Controller
 
         $post->delete();
 
-        return redirect('/')
+        return redirect()->back()
             ->with('success', 'Comment deleted successfully');
     }
 

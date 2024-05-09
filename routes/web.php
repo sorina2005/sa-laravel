@@ -39,6 +39,9 @@ Route::post('/create-user', [UserController::class, 'create'])->name('create-use
 
 Route::post('/language-switch', [LanguageController::class, 'languageSwitch'])->name('language-switch');
 
+
+Route::get('/recipes/{post}', RecipeController::class . '@show')->name('show');
+
 Route::middleware('auth')->group(function (): void {
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
@@ -51,7 +54,6 @@ Route::middleware('auth')->group(function (): void {
     Route::post('/store', RecipeController::class . '@store')->name('store');
     Route::get('/recipes/{post}/edit', RecipeController::class . '@edit')->name('edit');
     Route::put('/recipes/{post}', RecipeController::class . '@update')->name('update');
-    Route::get('/recipes/{post}', RecipeController::class . '@show')->name('show');
     Route::delete('/recipes/{post}', RecipeController::class . '@destroy')->name('destroy');
 
     Route::get('/favorites', [FavoriteController::class, 'favorites'])->name('favorites');
