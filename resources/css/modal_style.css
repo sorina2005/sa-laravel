@@ -48,7 +48,7 @@ body {
 }
 
 
-#category, #food {
+ #food {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,3 +68,4 @@ body {
     padding: 10px;
     font-size: 15px;
 }
+

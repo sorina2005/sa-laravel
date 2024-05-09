@@ -21,12 +21,12 @@
                             <div class="form-group col-md-6">
                                 @error('first_name') <span class="error">{{ $message }}</span> @enderror
                                 <input type="text" class="form-control" id="first_name" name="first_name"
-                                       placeholder="First Name">
+                                       placeholder="@lang('app.first_name')">
                             </div>
                             <div class="form-group col-md-6">
                                 @error('last_name') <span class="error">{{ $message }}</span> @enderror
                                 <input type="text" class="form-control" id="last_name" name="last_name"
-                                       placeholder="Last Name">
+                                       placeholder="@lang('app.last_name')">
                             </div>
                         </div>
                         <div class="form-group">
@@ -35,16 +35,16 @@
                         </div>
                         <div class="form-group">
                             @error('subject') <span class="error">{{ $message }}</span> @enderror
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="@lang('app.subject')">
                         </div>
                         <div class="form-group text-center">
                             @error('message')
                             <div class="error">{{ $message }}</div> @enderror
-                            <textarea placeholder="Message" cols="30" rows="10" name="message"
+                            <textarea placeholder="@lang('app.message')" cols="30" rows="10" name="message"
                                       class="contact-form-textarea" id="message"></textarea>
                         </div>
                         <div class="form-group text-center">
-                            <button type="submit" class="btn btn-primary submit">Submit form</button>
+                            <button type="submit" class="btn btn-primary submit">@lang('app.submitForm')</button>
                         </div>
                     </form>
                 </div>
@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col align-self-start">
                 <span class="fa fa-map-marker"></span>
-                <p>Address: Complex Studențesc Parc, Bulevardul Victoriei 31, Sibiu 550024</p>
+                <p>@lang('app.address'): Complex Studențesc Parc, Bulevardul Victoriei 31, Sibiu 550024</p>
             </div>
             <div class="col align-self-center">
                 <span class="fa fa-phone"></span>

@@ -20,20 +20,19 @@
                                         <span class="h1 fw-bold mb-0 bx bxs-bowl-hot">Bite Station</span>
                                     </div>
 
-                                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your
-                                        account</h5>
+                                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">@lang('app.signIntoAccount')</h5>
                                     <div class="form-outline mb-4">
 
                                         <input type="text" id="username" class="form-control form-control-lg"
                                                name="email"/>
-                                        <label class="form-label" for="username">Username</label>
+                                        <label class="form-label" for="username">@lang('app.username')</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
 
                                         <input type="password" id="password" class="form-control form-control-lg"
                                                name="password"/>
-                                        <label class="form-label" for="password">Password</label>
+                                        <label class="form-label" for="password">@lang('app.password')</label>
                                         <span class="password-toggle-icon"><i class="fa fa-eye"></i></span>
 
                                     </div>
@@ -41,16 +40,16 @@
 
                                     <div class="pt-1 mb-4">
                                         <button class="btn btn-dark btn-lg btn-block" type="submit" value="login"
-                                                name="login">Login
+                                                name="login">@lang('app.login')
                                         </button>
                                     </div>
 
-                                    <a class="small text-muted" href="!#">Forgot password?</a>
-                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a
-                                            href="register.php"
-                                            style="color: #393f81;">Register here</a></p>
-                                    <a href="#!" class="small text-muted">Terms of use.</a>
-                                    <a href="#!" class="small text-muted">Privacy policy</a>
+                                    <a class="small text-muted" href="!#">@lang('app.forgotPassword')?</a>
+                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">@lang('app.noAccount')? <a
+                                            href="{{ route('register') }}"
+                                            style="color: #393f81;">@lang('app.registerHere')</a></p>
+                                    <a href="#!" class="small text-muted">@lang('app.termsOfUse').</a>
+                                    <a href="#!" class="small text-muted">@lang('app.privacyPolicy')</a>
                                 </form>
 
                             </div>

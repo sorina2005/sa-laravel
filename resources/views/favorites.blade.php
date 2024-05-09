@@ -37,4 +37,3 @@
     </section>
 </div>
 
-@include('shared.footer')

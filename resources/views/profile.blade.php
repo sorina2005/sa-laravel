@@ -32,7 +32,7 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0">Mobile Number</p>
+                                                    <p class="mb-0">@lang('app.mobileNumber')</p>
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <p class="text-muted mb-0"></p>
@@ -41,7 +41,7 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0">Address</p>
+                                                    <p class="mb-0">@lang('app.address')</p>
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <p class="text-muted mb-0"></p>
@@ -53,7 +53,7 @@
                                                 <div class="col-sm-3">
                                                     <a href="javascript:void(0)" class="btn btn-sm btn-success"
                                                        data-toggle="modal" data-target="#proInfoModal"><i
-                                                            class="fa fa-edit"></i> Edit Profile Info</a>
+                                                            class="fa fa-edit"></i>@lang('app.editProfileInfo')</a>
                                                 </div>
                                                 <div class="col-sm-9"></div>
                                             </div>
@@ -73,7 +73,7 @@
         <div class="modal-dialog">
             <div class="modal-content border-dark">
                 <div class="modal-header bg-light">
-                    <h2 class="card-title">Update Profile Picture</h2>
+                    <h2 class="card-title">@lang('app.updateProfilePicture')</h2>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
@@ -95,7 +95,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body py-2 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success p-1">Save Picture</button>
+                                        <button type="submit" class="btn btn-sm btn-success p-1">@lang('app.save')</button>
                                     </div>
                                 </form>
                             </div>
@@ -111,7 +111,7 @@
         <div class="modal-dialog">
             <div class="modal-content border-dark">
                 <div class="modal-header bg-light">
-                    <h2 class="card-title">Update Profile Info</h2>
+                    <h2 class="card-title">@lang('app.updateProfile')</h2>
                 </div>
                 <div class="modal-body">
                     <div class="container">
@@ -121,7 +121,7 @@
                             <input type="hidden" name="userId" value="">
                             <div class="row ">
                                 <div class="col-sm-4 ">
-                                    <p class="mb-0">Mobile Number</p>
+                                    <p class="mb-0">@lang('app.mobileNumber')</p>
                                 </div>
                                 <div class="col-sm-8 pull-right">
                                     <input type="text" class="form-control" name="mobile" id="mobile" value="">
@@ -130,7 +130,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <p class="mb-0">Address</p>
+                                    <p class="mb-0">@lang('app.address')</p>
                                 </div>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="address" id="address" value="">
@@ -139,7 +139,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-8">
-                                    <button type="submit" class="btn btn-success">Save Profile Info Update</button>
+                                    <button type="submit" class="btn btn-success">@lang('app.save')</button>
                                 </div>
                                 <div class="col-sm-4"></div>
                             </div>

@@ -20,12 +20,12 @@
                                         <span class="h1 fw-bold mb-0 bx bxs-bowl-hot">Bite Station</span>
                                     </div>
 
-                                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create an account</h5>
+                                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">@lang('app.createAccount')</h5>
 
                                     <div class="form-outline mb-4">
                                         <input class="form-control form-control-lg" type="text" id="name" name="name"
                                                value="{{ old('name') }}">
-                                        <label class="form-label" for="name">Name</label>
+                                        <label class="form-label" for="name">@lang('app.name')</label>
                                         @php
                                             $field='name'
                                         @endphp
@@ -47,7 +47,7 @@
                                     <div class="form-outline mb-4">
                                         <input class="form-control form-control-lg" type="password" id="password"
                                                name="password">
-                                        <label class="form-label" for="password">Password</label>
+                                        <label class="form-label" for="password">@lang('app.password')</label>
                                         <span class="password-toggle-icon"><i class="fa fa-eye"></i></span>
                                         @php
                                             $field='password'
@@ -60,7 +60,7 @@
 
                                         <input class="form-control form-control-lg" type="password"
                                                id="confirm_password" name="confirm_password">
-                                        <label class="form-label" for="confirm-password">Confirm password</label>
+                                        <label class="form-label" for="confirm-password">@lang('app.confirmPassword')</label>
                                         <span class="confirm-password-toggle-icon"><i class="fa fa-eye"></i></span>
                                         @php
                                             $field='confirm_password'
@@ -72,15 +72,15 @@
                                     <div class="form-group">
                                         <input type="submit" class="btn btn-dark btn-lg btn-block" value="Submit"
                                                name="register">
-                                        <label class="form-label" for="reset">Forgot password?</label>
+                                        <label class="form-label" for="reset">@lang('app.forgotPassword')?</label>
                                         <input type="reset" class="btn btn-secondary ml-2" value="Reset" id="reset">
                                     </div>
 
-                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? <a
+                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">@lang('app.alreadyAccount')? <a
                                             href="{{ route('login') }}"
-                                            style="color: #393f81;">Login here</a></p>
-                                    <a href="#!" class="small text-muted">Terms of use.</a>
-                                    <a href="#!" class="small text-muted">Privacy policy</a>
+                                            style="color: #393f81;">@lang('app.loginHere')</a></p>
+                                    <a href="#!" class="small text-muted">@lang('app.termsOfUse')</a>
+                                    <a href="#!" class="small text-muted">@lang('app.privacyPolicy')</a>
                                 </form>
 
                             </div>

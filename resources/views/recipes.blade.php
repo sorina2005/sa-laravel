@@ -3,7 +3,7 @@
 
 <section id="food">
     <div class="card card-food-list">
-        <h1 class="text-center" style="padding-top:6rem;"><strong>Food Lists</strong></h1>
+        <h1 class="text-center" style="padding-top:6rem;"><strong>@lang('app.foodLists')</strong></h1>
         <div class="mt-4">
             <div class="row">
 
@@ -12,13 +12,12 @@
                     <form action="{{ route('recipes-create') }}">
                         @csrf
                         @method('GET')
-                        <button type="submit" class="btn btn-add-food btn-secondary">Add Recipe</button>
+                        <button type="submit" class="btn btn-add-food btn-secondary">@lang('app.addRecipe')</button>
                     </form>
                 </div>
 
-
                 <div class="col-md-2">
-                    <input class="form-control p-4" type="text" id="searchInput" placeholder="Search...">
+                    <input class="form-control p-4" type="text" id="searchInput" placeholder="@lang('app.search')">
                 </div>
             </div>
         </div>
@@ -26,10 +25,10 @@
         <table id="foodListTable" class="table table-responsive mt-4" style="text-align:center;">
             <thead>
             <tr>
-                <th scope="col" style="width: 5%;">Food ID</th>
-                <th scope="col" style="width: 10%;">Recipe Image</th>
-                <th scope="col" style="width: 10%;">Recipe Name</th>
-                <th scope="col" style="width: 10%;">Action</th>
+                <th scope="col" style="width: 5%;">@lang('app.recipeId')</th>
+                <th scope="col" style="width: 10%;">@lang('app.recipeImage')</th>
+                <th scope="col" style="width: 10%;">@lang('app.recipeName')</th>
+                <th scope="col" style="width: 10%;">@lang('app.do')</th>
             </tr>
             </thead>
             <tbody>
@@ -39,7 +38,6 @@
                     <td><img src="{{ asset($recipe->image) }}" class="img-fluid" style="height: 50px; width: 90px"
                              alt="Recipe Image"></td>
                     <td>{{ $recipe->title }}</td>
-                    {{--                    <td>{{ $recipe->category->category_name }}</td>--}}
                     <td>
                         <form action="{{ route('show', $recipe->id) }}">
                             @csrf

@@ -8,7 +8,7 @@
 {{--@endforeach--}}
 
 <section class="sec1 text-center">
-    <h1>If you don't know what to cook, you can find on our page new recipes</h1>
+    <h1>@lang('app.mainPageStatement')</h1>
 </section>
 
 <section class="sec2"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur at, libero quaerat

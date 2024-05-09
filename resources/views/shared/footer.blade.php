@@ -45,7 +45,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-auto">
                         <p class="pt-2">
-                            <strong>Sign up for our newsletter</strong>
+                            <strong>@lang('app.signUpForOurNewsletter')</strong>
                         </p>
                     </div>
                     <div class="col-md-5 col-12">
@@ -53,7 +53,7 @@
                         <div data-mdb-input-init class="form-outline mb-4">
                             <input type="email" id="form5Example24" class="form-control"
                                    placeholder="email@something.com"/>
-                            <label class="form-label" for="form5Example24">Email address</label>
+                            <label class="form-label" for="form5Example24">@lang('app.emailAddress')</label>
                         </div>
                     </div>
                     <div class="col-auto">
@@ -66,32 +66,32 @@
         </div>
         <div class="mb-4">
             <p>
-                Tasteful recipes and easy to make.
+                @lang('app.tastefulRecipesAndEasyToMake')
             </p>
         </div>
         <!-- Section: Links -->
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-4 mx-auto">
-                <h5 class="text-uppercase">Links</h5>
+                <h5 class="text-uppercase">@lang('app.links')</h5>
                 <ul class="list-unstyled mb-auto">
                     <li>
-                        <a class="text-body" href="{{ route('home')  }}">Home</a>
+                        <a class="text-body" href="{{ route('home')  }}">@lang('app.home')</a>
                     </li>
                     <li>
-                        <a class="text-body" href="{{ route('about-us')  }}">About Us</a>
+                        <a class="text-body" href="{{ route('about-us')  }}">@lang('app.aboutUs')</a>
                     </li>
                     <li>
-                        <a class="text-body" href="{{ route('contact') }}">Contact</a>
+                        <a class="text-body" href="{{ route('contact') }}">@lang('app.contact')</a>
                     </li>
                     @auth
                         <li>
-                            <a class="text-body" href="{{ route('recipes') }}">Recipes</a>
+                            <a class="text-body" href="{{ route('recipes') }}">@lang('app.recipes')</a>
                         </li>
                         <li>
-                            <a class="text-body" href="{{ route('profile') }}">Profile</a>
+                            <a class="text-body" href="{{ route('profile') }}">@lang('app.profile')</a>
                         </li>
                         <li>
-                            <a class="text-body" href="{{ route('favorites') }}">Favorites</a>
+                            <a class="text-body" href="{{ route('favorites') }}">@lang('app.favorites')</a>
                         </li>
 
                     @endauth
