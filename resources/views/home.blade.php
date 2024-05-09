@@ -1,12 +1,6 @@
 <!-- Header -->
 @include('shared.header')
 
-{{--@dd($userSorina)--}}
-
-{{--@foreach($users as $user)--}}
-{{--    {{ $user->name }}--}}
-{{--@endforeach--}}
-
 <section class="sec1 text-center">
     <h1>@lang('app.mainPageStatement')</h1>
 </section>
@@ -32,12 +26,16 @@
 <br>
 <br>
 <br>
-{{--todo fix overlaping --}}
 <div class="container">
-    <section id="category" style="padding-bottom: 75rem; padding-top: 75rem; ">
+    <section id="category" style="padding-bottom: 150rem; padding-top: 6rem; ">
         <!-- Category Area -->
         <div class="row">
             @if(count($recipes)>0)
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 @foreach ($recipes as $recipe)
                     <div class="col-md-4 mb-4">
                         <div class="card h-100">
@@ -45,21 +43,19 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center"><strong>{{ $recipe->title }}</strong></h5>
                                 <div class="text-center">
-                                    {{--                                todo make view here--}}
                                     <form action="{{ route('show', $recipe->id) }}">
                                         @csrf
                                         @method('GET')
-                                        <button type="submit" class="btn btn-dark" title="View">View Recipe</button>
+                                        <button type="submit" class="btn btn-dark" title="View">@lang('app.viewRecipe')</button>
                                     </form>
                                     <br>
-                                    {{--                                comment button--}}
                                     @auth()
                                         <div class="row">
                                             <div class="col">
                                                 <form action="{{ route('add-comment', $recipe->id) }}" method="get">
                                                     @csrf
                                                     <button type="submit" class="btn btn-dark" title="Post a comment">
-                                                        Post a comment
+                                                        @lang('app.postComment')
                                                     </button>
                                                 </form>
                                             </div>
@@ -67,12 +63,11 @@
                                                 <form action="{{ route('show-comments', $recipe->id) }}" method="get">
                                                     @csrf
                                                     <button type="submit" class="btn btn-dark" title="View comments">
-                                                        View comments
+                                                        @lang('app.viewComments')
                                                     </button>
                                                 </form>
                                             </div>
                                         </div>
-
                                     @endauth
                                 </div>
                             </div>
@@ -80,24 +75,21 @@
                     </div>
                 @endforeach
             @else
-                <p class="alert alert-danger">No posts found</p>
+                <p class="alert alert-danger">@lang('app.noPostsFound')</p>
             @endif
-
         </div>
     </section>
 </div>
-{{--todo fixing the overlapping problem--}}
 <div class="search-recipe text-center">
-    <a href="../html/api_index.html" target="_blank">Search more recipes</a>
+    <a href="../html/api_index.html" target="_blank">@lang('app.searchMore')</a>
 </div>
 <br>
 <br>
-{{--TODO !!!!!!!!!!!!!!!!!!! to make all the pages responsive --}}
 <div class="container">
     <section id="slider">
         <div>
             <br>
-            <h2>Pictures from you</h2>
+            <h2>@lang('app.picturesFromYou')</h2>
         </div>
         <div class="slider">
             <div class="list">
@@ -139,6 +131,5 @@
         </div>
     </section>
 </div>
-
 <!-- FOOTER -->
 @include('shared.footer')

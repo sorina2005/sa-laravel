@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class CommentController extends Controller
@@ -33,7 +34,8 @@ class CommentController extends Controller
 
         Comment::create($input);
 
-        return redirect('/');
+        return redirect('/')
+            ->with('success', 'Comment posted successfully');
     }
 
     public function showComments($id): View
@@ -45,6 +47,20 @@ class CommentController extends Controller
         return view('view-comments', [
             'comments' => $comments,
         ]);
+    }
+
+    public function destroy($id)
+    {
+
+        $userId = Auth::id();
+
+        $post = Comment::where('user_id', $userId)
+            ->where('recipe_id', $id);
+
+        $post->delete();
+
+        return redirect('/')
+            ->with('success', 'Comment deleted successfully');
     }
 
 }

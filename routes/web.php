@@ -42,9 +42,9 @@ Route::post('/language-switch', [LanguageController::class, 'languageSwitch'])->
 Route::middleware('auth')->group(function (): void {
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
-    Route::get('profile', [ProfileController::class, 'profile'])->name('profile');
-    Route::post('update/picture', [ProfileController::class, 'updatePicture'])->name('update-picture');
-    Route::post('update/info', [ProfileController::class, 'updateInfo'])->name('update-info');
+    Route::get('profile',[ProfileController::class,'index'])->name('profile');
+    Route::post('profile/{user}',[ProfileController::class,'update'])->name('profile-update');
+    Route::get('profile/{user}',[ProfileController::class,'view'])->name('update-profile');
 
     Route::get('/recipes', [RecipeController::class, 'recipes'])->name('recipes');
     Route::get('/create', RecipeController::class . '@create')->name('recipes-create');
@@ -61,4 +61,5 @@ Route::middleware('auth')->group(function (): void {
     Route::post('/comment', [CommentController::class, 'store'])->name('comment');
     Route::get('/comment/{post}', [CommentController::class, 'show'])->name('add-comment');
     Route::get('/comments/{post}', [CommentController::class, 'showComments'])->name('show-comments');
+    Route::delete('/comments/{post}', CommentController::class . '@destroy')->name('delete-comment');
 });

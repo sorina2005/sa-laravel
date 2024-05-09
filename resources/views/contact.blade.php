@@ -1,10 +1,16 @@
 <!-- Header -->
 @include('shared.header')
-
 <main>
     <!--SEND MESSAGE AND EMBEDED MAP-->
     <section>
         <div class="container">
+
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <div class="row">
                 <div class="col-md-6">
                     <iframe
@@ -35,7 +41,8 @@
                         </div>
                         <div class="form-group">
                             @error('subject') <span class="error">{{ $message }}</span> @enderror
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="@lang('app.subject')">
+                            <input type="text" class="form-control" id="subject" name="subject"
+                                   placeholder="@lang('app.subject')">
                         </div>
                         <div class="form-group text-center">
                             @error('message')

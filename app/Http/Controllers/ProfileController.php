@@ -5,62 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
-use Nette\Utils\Image;
 
 class ProfileController extends Controller
 {
-    public function profile(): View
+    public function index()
     {
-        $userId = Auth()->id();
-
-        $user = User::where('id', '=', $userId)->first();
-
-        $userProfile = Profile::where('user_id', '=', $userId)->first();
-
-        return view('profile', compact('userProfile', 'user'));
+        return view('profile');
     }
 
-    public function updatePicture(Request $request)
+    public function update(User $user, Request $request)
     {
-        if ($request->hasFile('picture')) {
-
-            $picture = $request->file('picture');
-
-            $userId = $request['user_id'];
-
-            $uploadedFile = time() . $picture->getClientOriginalName();
-
-            Image::make($picture)->resize(300, 300)->save(public_path('images/' . $uploadedFile));
-
-            $user = Profile::where('user_id', '=', $userId)->first();
-
-            $user->picture = $uploadedFile;
-
-            $user->save();
-        }
-
-        return redirect('profile');
-    }
-
-    public function updateInfo(Request $request)
-    {
-
-        $data = $request->validate([
-            'address' => 'required',
-            'mobile' => 'required',
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'updated_at' => now()
         ]);
 
-        $userId = Auth::id();
+        return redirect('profile')
+            ->with('success', 'Profile updated successfully');
+    }
 
-        Profile::updateOrCreate(
-            ['user_id' => $userId],
-            $data
-        );
-
-        return redirect('profile');
+    public function view()
+    {
+        return view('edit-profile');
     }
 }
 
-//todo make the profile thing work

@@ -4,6 +4,11 @@
 <section id="food">
     <div class="card card-food-list">
         <h1 class="text-center" style="padding-top:6rem;"><strong>@lang('app.foodLists')</strong></h1>
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="mt-4">
             <div class="row">
 
@@ -35,7 +40,7 @@
             @foreach ($recipes as $recipe)
                 <tr>
                     <th>{{ $recipe->id }}</th>
-                    <td><img src="{{ asset($recipe->image) }}" class="img-fluid" style="height: 50px; width: 90px"
+                    <td><img src="{{ $recipe->image }}" class="img-fluid" style="height: 50px; width: 90px"
                              alt="Recipe Image"></td>
                     <td>{{ $recipe->title }}</td>
                     <td>
@@ -53,7 +58,7 @@
                         <form action="{{ route('destroy', $recipe->id) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" title="Delete"><i class="fa-solid fa-trash p-1"></i></button>
+                            <button type="submit" title="Delete" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash p-1"></i></button>
                         </form>
                         @php
                             $userId = Auth::id();

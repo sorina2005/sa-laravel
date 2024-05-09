@@ -11,7 +11,6 @@ use Illuminate\View\View;
 
 class FavoriteController extends Controller
 {
-
     public function favorites(): View
     {
         $userId = Auth::id();
@@ -46,7 +45,7 @@ class FavoriteController extends Controller
         ]);
 
         if ($favorite) {
-            return redirect()->back()->with('success', 'Like added successfully');
+            return redirect()->back()->with('success', 'Post like added successfully');
         } else {
             return redirect()->back()->with('error', 'Failed to add like');
         }

@@ -1,5 +1,10 @@
 @include('shared.header')
 <div class="container" style="padding-top:5rem;">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <section id="category">
         <!-- Category Area -->
         <div class="row">
@@ -11,17 +16,16 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center"><strong>{{ $recipe->title }}</strong></h5>
                                 <div class="text-center">
-                                    {{--                                to do make view here--}}
                                     <form action="{{ route('show', $recipe->id) }}">
                                         @csrf
                                         @method('GET')
-                                        <button type="submit" class="btn btn-dark" title="View">View Recipe</button>
+                                        <button type="submit" class="btn btn-dark" title="View">@lang('app.viewRecipe')</button>
                                     </form>
                                     <br>
                                     <form action="{{ route('delete-favorite', $recipe->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" title="Delete from favorites"><i
+                                        <button type="submit" onclick="return confirm('Are you sure?')" title="Delete from favorites"><i
                                                 class="fa-solid fa-trash p-1"></i></button>
                                     </form>
                                 </div>
@@ -32,7 +36,6 @@
             @else
                 <p class="alert alert-danger">No posts found</p>
             @endif
-            {{--todo make the liked button a different color if the post is liked, or maybe dissaper if the user liked it--}}
         </div>
     </section>
 </div>

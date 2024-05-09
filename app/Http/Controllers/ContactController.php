@@ -25,6 +25,7 @@ class ContactController extends Controller
 
         Contact::create($credentials);
 
-        return redirect()->route('contact');
+        return redirect()->route('contact')
+            ->with('success', 'Form sent successfully');
     }
 }

@@ -36,7 +36,7 @@ return [
     'confirmPassword' => 'Confirmați parola',
     'alreadyAccount' => 'Aveți deja un cont',
     'loginHere' => 'Conectați-vă aici',
-    'foodId' => 'ID mâncare',
+    'recipeId' => 'ID mâncare',
     'recipeImage' => 'Imagine rețetă',
     'recipeName' => 'Nume rețetă',
     'search' => 'Căutare...',
@@ -48,4 +48,11 @@ return [
     'save' => 'Salveaza',
     'updateProfilePicture' => 'Schimba imagine de profil',
     'updateProfile' => 'Editeaza profil',
+    'viewRecipe' => 'Vezi reteta',
+    'viewComments' => 'Vezi cometariile',
+    'postComment' => 'Posteaza un comentariu',
+    'noPostsFound' => 'Nicio postare gasita',
+    'searchMore' => 'Cauta mai multe retete',
+    'picturesFromYou' => 'Poze de la voi',
+
 ];

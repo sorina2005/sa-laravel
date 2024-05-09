@@ -2,7 +2,6 @@
 //TOTO profile
 namespace App\Http\Controllers;
 
-use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,20 +46,11 @@ class UserController extends Controller
 
         $credentials['password'] = bcrypt($credentials['password']);
 
-        $user = User::create($credentials);
+        User::create($credentials);
 
         if (Auth::attempt($credentials)) {
             return redirect()->intended();
         }
-
-        $getuserid = $user->id;
-
-        $createprofile = new Profile();
-
-        $createprofile->user_id = $getuserid;
-
-        $createprofile->save();
-
     }
 
     public function logout(): \Illuminate\Http\RedirectResponse
